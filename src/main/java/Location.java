@@ -13,7 +13,7 @@ public class Location {
     }
 
     public Location(int x_coordinate, int y_coordinate, char direction_on_compass) throws IllegalArgumentException {
-        if (x_coordinate < 1 || y_coordinate < 1 || x_coordinate > 5 || y_coordinate > 5)
+        if (x_coordinate < 0 || y_coordinate < 0 || x_coordinate > 5 || y_coordinate > 5)
             throw new IllegalArgumentException();
         else {
             this.direction_on_compass = direction_on_compass;
