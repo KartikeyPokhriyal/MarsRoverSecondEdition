@@ -1,18 +1,8 @@
 import org.junit.Test;
-
-import java.util.Dictionary;
-
 import static org.junit.Assert.assertEquals;
 
+
 public class MarsRoverTest {
-
-
-    @Test
-    public void shouldChangeDirections() {
-        Location north = Location.north();
-
-        assertEquals(Location.west(), north.turnByNinetyDegree('L'));
-    }
 
     @Test
     public void roverShouldChangeDirections() {
@@ -32,7 +22,12 @@ public class MarsRoverTest {
     public void roverShouldChangeCoordinateAndDirections() {
         MarsRover rover = new MarsRover(new Location(1,2,'N'));
 
-        assertEquals(new MarsRover(new Location(0,3,'W')), rover.follow("MLRLM"));
+        assertEquals(new MarsRover(new Location(1,3,'W')), rover.follow("MLRL"));
+    }
+
+    @Test (expected = Exception.class)
+    public void roverShouldNotCrossThePlateauCoordinates() throws IllegalArgumentException {
+        Plateau roverPlateau = new Plateau(-1,0);
     }
 }
 

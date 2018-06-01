@@ -1,17 +1,25 @@
 import java.util.Objects;
 
 public class Location {
-    private char direction_on_compass;
+    private  char direction_on_compass;
     private char left;
     private char right;
-    private int x_coordinate;
-    private int y_coordinate;
+    private  int x_coordinate;
+    private  int y_coordinate;
 
-
-    public Location( int x_coordinate, int y_coordinate, char direction_on_compass) {
-        this.direction_on_compass = direction_on_compass;
+    public Location(int x_coordinate, int y_coordinate) {
         this.x_coordinate = x_coordinate;
         this.y_coordinate = y_coordinate;
+    }
+
+    public Location(int x_coordinate, int y_coordinate, char direction_on_compass) throws IllegalArgumentException {
+        if (x_coordinate < 1 || y_coordinate < 1 || x_coordinate > 5 || y_coordinate > 5)
+            throw new IllegalArgumentException();
+        else {
+            this.direction_on_compass = direction_on_compass;
+            this.x_coordinate = x_coordinate;
+            this.y_coordinate = y_coordinate;
+        }
     }
 
     public Location(char direction_on_compass) {
@@ -35,7 +43,7 @@ public class Location {
     }
 
 
-    public Location turnByNinetyDegree(char right) {
+    public  Location turnByNinetyDegree(char right) {
 
         if(right == 'R') {
             if (direction_on_compass == 'N')
