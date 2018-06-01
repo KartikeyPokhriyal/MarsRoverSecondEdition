@@ -11,9 +11,14 @@ public class MarsRover {
         this.direction = direction;
     }
 
-
-    public MarsRover follow() {
-        return new MarsRover(1, 2, 'W');
+    public MarsRover follow(char command) {
+        if (command == 'L') {
+            return new MarsRover(1, 2, 'W');
+        }
+        else if(command == 'R') {
+            return new MarsRover(1,2,'S');
+        }
+        else return this;
     }
 
     @Override
