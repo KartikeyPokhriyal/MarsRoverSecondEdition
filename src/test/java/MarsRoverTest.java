@@ -15,8 +15,16 @@ public class MarsRoverTest {
     public void shouldMoveNinetyDegreeLeftWhenRIsTheCommand() {
         MarsRover marsRover = new MarsRover(1,2,'W');
 
-        assertEquals(new MarsRover(1,2, 'S'), marsRover.follow('R'));
+        assertEquals(new MarsRover(1,2, 'N'), marsRover.follow('R'));
     }
+
+    @Test
+    public void shouldMoveNinetyOnCommand() {
+        MarsRover marsRover = new MarsRover(1,2,'R');
+
+        assertEquals(new MarsRover(1,2, 'N'), marsRover.follow('L'));
+    }
+
 
 }
 
