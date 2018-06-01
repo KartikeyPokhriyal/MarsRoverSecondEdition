@@ -97,7 +97,7 @@ public class Location {
             return new Location(x_coordinate + 1, y_coordinate , direction_on_compass);
 
         if(direction_on_compass == 'W')
-            return new Location(x_coordinate - 1, y_coordinate + 1, direction_on_compass);
+            return new Location(x_coordinate - 1, y_coordinate , direction_on_compass);
 
         else return this;
     }
