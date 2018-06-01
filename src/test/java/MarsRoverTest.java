@@ -1,30 +1,32 @@
 import org.junit.Test;
 
+import java.util.Dictionary;
+
 import static org.junit.Assert.assertEquals;
 
 public class MarsRoverTest {
 
-    @Test
-    public void shouldMoveNinetyDegreeLeftWhenLIsTheCommand() {
-        MarsRover marsRover = new MarsRover(1,2,'N');
 
-        assertEquals(new MarsRover(1,2, 'W'), marsRover.follow('L'));
+    @Test
+    public void shouldChangeDirections() {
+        Location north = Location.north();
+
+        assertEquals(Location.west(), north.turnByNinetyDegree('L'));
     }
 
     @Test
-    public void shouldMoveNinetyDegreeLeftWhenRIsTheCommand() {
-        MarsRover marsRover = new MarsRover(1,2,'W');
+    public void roverShouldChangeDirections() {
+        MarsRover rover = new MarsRover(new Location(1,2,'N'));
 
-        assertEquals(new MarsRover(1,2, 'N'), marsRover.follow('R'));
+        assertEquals(new MarsRover(new Location('W')), rover.follow('L'));
     }
 
     @Test
-    public void shouldMoveNinetyOnCommand() {
-        MarsRover marsRover = new MarsRover(1,2,'R');
+    public void roverShouldChangeCoordinates() {
+        MarsRover rover = new MarsRover(new Location(1,2,'N'));
 
-        assertEquals(new MarsRover(1,2, 'N'), marsRover.follow('L'));
+        assertEquals(new MarsRover(new Location(1,3,'N')), rover.follow('M'));
     }
-
 
 }
 
