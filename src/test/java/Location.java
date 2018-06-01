@@ -52,7 +52,7 @@ public class Location {
             if (direction_on_compass == 'N')
                 return new Location(x_coordinate, y_coordinate, 'W');
             if(direction_on_compass == 'S')
-                return new Location(x_coordinate, y_coordinate,'W');
+                return new Location(x_coordinate, y_coordinate,'E');
             if(direction_on_compass == 'E')
                 return new Location(x_coordinate, y_coordinate, 'N');
             if(direction_on_compass == 'W')
@@ -78,7 +78,7 @@ public class Location {
         return Objects.hash(direction_on_compass, left, right);
     }
 
-    public Location move(char command) {
+    public Location move() {
         if(direction_on_compass == 'N')
             return new Location(x_coordinate, y_coordinate + 1, direction_on_compass);
 
@@ -92,6 +92,17 @@ public class Location {
             return new Location(x_coordinate - 1, y_coordinate + 1, direction_on_compass);
 
         else return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "direction_on_compass=" + direction_on_compass +
+                ", left=" + left +
+                ", right=" + right +
+                ", x_coordinate=" + x_coordinate +
+                ", y_coordinate=" + y_coordinate +
+                '}';
     }
 }
 

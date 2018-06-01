@@ -21,12 +21,27 @@ public class MarsRover {
         return Objects.hash(location);
     }
 
-    public MarsRover follow(char command) {
-        if(command == 'R' || command == 'L')
-        return new MarsRover(location.turnByNinetyDegree(command));
+    public MarsRover follow(String commands) {
+        char[] command = commands.toCharArray();
 
-        else {
-            return new MarsRover(location.move(command));
+
+        for (char aCommand : command) {
+
+
+            if (aCommand == 'R' || aCommand == 'L')
+                location = location.turnByNinetyDegree(aCommand);
+
+            else {
+                location = location.move();
+            }
         }
+        return new MarsRover(location);
+    }
+
+    @Override
+    public String toString() {
+        return "MarsRover{" +
+                "location=" + location +
+                '}';
     }
 }
