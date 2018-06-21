@@ -21,17 +21,12 @@ public class MarsRover {
         return Objects.hash(location);
     }
 
-    public MarsRover follow(String commands) throws CommandNotFoundException{
+    public MarsRover follow(String commands) {
+
         char[] command = commands.toCharArray();
 
         for (char instruction : command) {
 
-            if(instruction != 'M' || instruction!= 'L' || instruction!= 'R') {
-
-                throw new CommandNotFoundException();
-            }
-
-            else {
                 switch (location.direction_on_compass) {
 
                     case 'N':
@@ -52,7 +47,6 @@ public class MarsRover {
                 }
             }
 
-        }
 
         return new MarsRover(location);
     }
