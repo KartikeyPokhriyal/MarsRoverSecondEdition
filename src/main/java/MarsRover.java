@@ -29,24 +29,28 @@ public class MarsRover {
             switch (location.direction_on_compass) {
 
                 case 'N':
-                  return new MarsRover(location.north(aCommand));
+                   location.north(aCommand);
 
 
                 case 'S':
-                    return new MarsRover(location.south(aCommand));
+                    location.south(aCommand);
 
 
                 case 'E':
-                    return new MarsRover(location.east(aCommand));
+                    location.east(aCommand);
 
 
                 case 'W':
-                    return new MarsRover(location.west(aCommand));
+                   location.west(aCommand);
 
             }
+
         }
-        return this;
+
+        return new MarsRover(location);
     }
+
+
 
     @Override
     public String toString() {
