@@ -21,35 +21,41 @@ public class MarsRover {
         return Objects.hash(location);
     }
 
-    public MarsRover follow(String commands) {
+    public MarsRover follow(String commands) throws CommandNotFoundException{
         char[] command = commands.toCharArray();
 
-        for (char aCommand : command) {
+        for (char instruction : command) {
 
-            switch (location.direction_on_compass) {
+            if(instruction != 'M' || instruction!= 'L' || instruction!= 'R') {
 
-                case 'N':
-                   location.north(aCommand);
+                throw new CommandNotFoundException();
+            }
 
+            else {
+                switch (location.direction_on_compass) {
 
-                case 'S':
-                    location.south(aCommand);
-
-
-                case 'E':
-                    location.east(aCommand);
+                    case 'N':
+                        location.north(instruction);
 
 
-                case 'W':
-                   location.west(aCommand);
+                    case 'S':
+                        location.south(instruction);
 
+
+                    case 'E':
+                        location.east(instruction);
+
+
+                    case 'W':
+                        location.west(instruction);
+
+                }
             }
 
         }
 
         return new MarsRover(location);
     }
-
 
 
     @Override

@@ -25,5 +25,12 @@ public class MarsRoverTest {
         assertEquals(new MarsRover(new Location(1,3,'N')), rover.follow("MLRL"));
     }
 
+    @Test (expected = CommandNotFoundException.class)
+    public void roverShouldNotAcceptInvalidCommands() {
+        MarsRover rover = new MarsRover(new Location(1,2,'N'));
+
+        rover.follow("LFGH");
+    }
+
 }
 
