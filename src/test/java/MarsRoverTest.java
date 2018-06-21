@@ -32,5 +32,10 @@ public class MarsRoverTest {
         rover.follow("LFGH");
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void roverCannotTraverseBeyondThePlateau() {
+        Location loaction = new Location(6, 0, 'N');
+    }
+
 }
 
