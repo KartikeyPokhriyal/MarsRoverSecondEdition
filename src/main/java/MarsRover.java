@@ -24,18 +24,28 @@ public class MarsRover {
     public MarsRover follow(String commands) {
         char[] command = commands.toCharArray();
 
-
         for (char aCommand : command) {
 
+            switch (location.direction_on_compass) {
 
-            if (aCommand == 'R' || aCommand == 'L')
-                location = location.turnByNinetyDegree(aCommand);
+                case 'N':
+                  return new MarsRover(location.north(aCommand));
 
-            else {
-                location = location.move();
+
+                case 'S':
+                    return new MarsRover(location.south(aCommand));
+
+
+                case 'E':
+                    return new MarsRover(location.east(aCommand));
+
+
+                case 'W':
+                    return new MarsRover(location.west(aCommand));
+
             }
         }
-        return new MarsRover(location);
+        return this;
     }
 
     @Override
